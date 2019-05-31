@@ -60,3 +60,5 @@ target/
 \.idea/workspace\.xml
 
 MODEL/Model/
+
+IA/Model/
