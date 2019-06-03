@@ -1,6 +1,9 @@
 from IA.Classificador import *
 
-def previsao(DadosAPI):
+'''
+:return IdPlanta que está no banco
+'''
+def Previsao(DadosAPI):
 
     # DadosAPI = pd.DataFrame(data=DadosAPI.mean(axis=0)).transpose()
 
@@ -12,4 +15,5 @@ def previsao(DadosAPI):
     classificador = Classificador()
 
     for p in classificador.predict(input_fn=funTeste):
-        print(p )
+        print(p['class_ids'][0])
+        return p['class_ids'][0]

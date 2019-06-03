@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.feature_column import numeric_column
 
-def Classificador(numPlantas=4):
+def Classificador_Min_Max(numPlantas=20):
 
     TemMin = numeric_column(key='TemMin')
     TemMax = numeric_column(key='TemMax')
@@ -9,6 +9,19 @@ def Classificador(numPlantas=4):
     UmMax = numeric_column(key='Umidaderelativamin')
 
     colunas = [TemMax, TemMin, UmMax, UmMin]
+
+    classificador = tf.estimator.DNNClassifier(hidden_units=[8, 8, 8],
+                                               feature_columns=colunas,
+                                               model_dir='MODEL',
+                                               n_classes=numPlantas)
+    return classificador
+
+def Classificador(numPlantas=20):
+
+    Tem = numeric_column(key='Tem')
+    Umi = numeric_column(key='Umi')
+
+    colunas = [Tem,Umi]
 
     classificador = tf.estimator.DNNClassifier(hidden_units=[8, 8, 8],
                                                feature_columns=colunas,
