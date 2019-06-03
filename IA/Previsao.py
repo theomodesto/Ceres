@@ -13,16 +13,7 @@ def previsao(DadosAPI):
     # if TreinamentoTensorFlow() == True:
     #     print("Rodou")
 
-    TemMin = numeric_column(key='TemMin')
-    TemMax = numeric_column(key='TemMax')
-    UmMin = numeric_column(key='Umidaderelativamax')
-    UmMax = numeric_column(key='Umidaderelativamin')
-
-    colunas = [TemMax, TemMin, UmMax, UmMin]
-
-    classificador = tf.estimator.DNNClassifier(hidden_units=[8, 8, 8],
-                                               feature_columns=colunas,
-                                               model_dir='IA/modelTrained')
+    classificador = Classificador()
 
     for p in classificador.predict(input_fn=funTeste):
         print(p )
