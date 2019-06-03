@@ -1,4 +1,4 @@
-from Util.SingletonConnection import Connection
+from UTIL.SingletonConnection import Connection
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
