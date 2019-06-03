@@ -1,5 +1,6 @@
 from IA.DadosTreinamento import *
 from IA.Classificador import *
+import pickle
 
 def Treinamento():
 
@@ -19,16 +20,37 @@ def Treinamento():
 
     numPlantas = len(y_Treinamento)
 
-    print(numPlantas)
-    classificador = Classificador(numPlantas)
+    classificador = Classificador_Min_Max()
 
     print("Treinando a IA!!!")
 
     classificador.train(input_fn=funcao_treinamento,
                         steps=10000)
 
-    print("Treinamento concluido!!!")
+    eval = classificador.evaluate(input_fn=funcao_treinamento,steps=10000)
+
+    print("Treinamento concluido!!!\nScore:",eval)
 
     return True
 
-Treinamento()
+def TreinamentoSklearn():
+    X_Treinamento, y_Treinamento = DadosPlantas()
+
+    # numPlantas = len(y_Treinamento)
+
+    classificador = ClassificadorSklearn()
+
+    print("Treinando a IA!!!")
+
+    classificador.fit(X_Treinamento,y_Treinamento)
+
+    print("Treinamento concluido!!!\nScore: ",classificador.score(X_Treinamento,y_Treinamento))
+
+    filename = 'MODEL/digits_classifier.joblib.pkl'
+    f = open(filename,'wb')
+    pickle.dump(classificador, f)
+
+    return classificador
+
+# Treinamento()
+TreinamentoSklearn()

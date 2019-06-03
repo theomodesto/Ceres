@@ -1,5 +1,6 @@
 import tensorflow as tf
 from tensorflow.feature_column import numeric_column
+from sklearn.neighbors import KNeighborsClassifier
 
 def Classificador_Min_Max(numPlantas=20):
 
@@ -29,18 +30,10 @@ def Classificador(numPlantas=20):
                                                n_classes=numPlantas)
     return classificador
 
-
-
-
-
-"""
-def TreinamentoSklearn():
-    X_Treinamento, y_Treinamento = DadosPlantas("Plantas")
-    NumPlantas = len(y_Treinamento)
+def ClassificadorSklearn(NumPlantas=20):
     classificador = KNeighborsClassifier(n_neighbors=NumPlantas)
-    classificador.fit(X_Treinamento, y_Treinamento)
-    return True
-"""
+    return classificador
+
 
 
 
