@@ -1,9 +1,5 @@
 from IA.Classificador import *
 
-"""
-:param DadosAPI : DataFrame do Pandas com as colunas 
-TemMax,TemMin,Umidaderelativamin,Umidaderelativamax
-"""
 def previsao(DadosAPI):
 
     # DadosAPI = pd.DataFrame(data=DadosAPI.mean(axis=0)).transpose()

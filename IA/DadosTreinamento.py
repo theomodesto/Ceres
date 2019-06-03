@@ -1,7 +1,5 @@
 from UTIL.SingletonConnection import Connection
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder
-
 
 def DadosPlantas(Collection):
     plantas = Connection(Collection).find()
