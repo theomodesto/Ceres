@@ -1,6 +1,6 @@
 from Model.Localizacao import *
 
-class Clima:
+class Clima(Localizacao):
     def __init__(self,TemMin,TemMax,UmiMin,UmiMax,Localizacao):
         self.TemMin = TemMin
         self.TemMax = TemMax

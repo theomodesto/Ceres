@@ -5,8 +5,8 @@ def DadosPlantas():
     plantas = Connection("DadosTreinamento").find()
     dfPlantas = pd.DataFrame(data=list(plantas))
     y = dfPlantas.idPlanta
-    # y = dfPlantas.Nome
     X = dfPlantas.drop(['Nome', '_id','idPlanta'],axis=1)
+    print(X.info())
 
     return X,y
 
@@ -26,3 +26,5 @@ def AumentoRepresentatividade(dados):
                 arrayDados.append({'idPlanta':line[6], 'Tem':tem, 'Umi':umi})
     dadosAum = pd.DataFrame(data=arrayDados)
     return dadosAum
+
+
