@@ -56,3 +56,13 @@ docs/_build/
 
 # PyBuilder
 target/
+
+\.idea/workspace\.xml
+
+MODEL/Model/
+
+IA/Model/
+
+\.idea/Ceres_flask\.iml
+
+\.idea/
