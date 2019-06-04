@@ -6,17 +6,15 @@ def DadosPlantas():
     dfPlantas = pd.DataFrame(data=list(plantas))
     y = dfPlantas.idPlanta
     X = dfPlantas.drop(['Nome', '_id','idPlanta'],axis=1)
-    print(X.info())
-
     return X,y
 
-# def DadosPlantas():
-#     dfPlantas = pd.DataFrame(data=list(Connection("DadosTreinamento").find()))
-#     DadosAumentados = AumentoRepresentatividade(dfPlantas)
-#     y = DadosAumentados.idPlanta
-#     X = DadosAumentados.drop(['idPlanta'],axis=1)
-#
-#     return X,y
+def DadosPlantasAumentados():
+    dfPlantas = pd.DataFrame(data=list(Connection("DadosTreinamento").find()))
+    DadosAumentados = AumentoRepresentatividade(dfPlantas)
+    y = DadosAumentados.idPlanta
+    X = DadosAumentados.drop(['idPlanta'],axis=1)
+
+    return X,y
 
 def AumentoRepresentatividade(dados):
     arrayDados = []

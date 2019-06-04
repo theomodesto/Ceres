@@ -1,6 +1,6 @@
 import pickle
 
-from Ia.Classificador import *
+from IA.Classificador import *
 
 import pandas as pd
 
@@ -16,7 +16,7 @@ def Teste():
     funTeste = tf.estimator.inputs.pandas_input_fn(x=TesteCampoMagro,
                                                    shuffle=False)
 
-    classificador = Classificador(2946)
+    classificador = Classificador()
 
     for prev in classificador.predict(input_fn=funTeste):
         print(prev['class_ids'][0])
@@ -26,7 +26,7 @@ def TesteSklearn():
 
     print(TesteCampoMagro)
 
-    filename = 'Model/digits_classifier.joblib.pkl'
+    filename = 'Model/sklearn/digits_classifier.joblib.pkl'
     with open(filename, 'rb') as f:
         classificador = pickle.load(f)
 
@@ -35,5 +35,4 @@ def TesteSklearn():
 
 # Teste()
 TesteSklearn()
-
 
