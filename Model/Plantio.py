@@ -1,4 +1,4 @@
-from Model.Planta import *
+from Model.DadosTreinamentoPlanta import *
 class Plantio(Planta):
     def __init__(self,Planta,Passos):
         self.Planta = Planta

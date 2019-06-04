@@ -4,8 +4,6 @@ from IA.Classificador import *
 
 import pandas as pd
 
-from sklearn.externals import joblib
-
 def Teste():
     TesteCampoMagro = pd.read_csv('Input_Teste/CampoMagro.csv', delimiter=',')
 
@@ -34,5 +32,5 @@ def TesteSklearn():
             print("IdPlanta:",prev)
 
 # Teste()
-TesteSklearn()
+# TesteSklearn()
 

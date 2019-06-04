@@ -43,10 +43,7 @@ def ClassificadorDadosAumentados(numPlantas=20):
 
 def ClassificadorSklearn(NumPlantas=20):
     from sklearn.tree import DecisionTreeClassifier
-    from sklearn.ensemble import RandomForestClassifier
-    from sklearn.neighbors import KNeighborsClassifier
-    from sklearn.naive_bayes import GaussianNB
-    classificador = KNeighborsClassifier()
+    classificador = DecisionTreeClassifier()
     return classificador
 
 
