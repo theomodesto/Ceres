@@ -13,7 +13,7 @@ def Classificador_Min_Max(numPlantas=20):
 
     classificador = tf.estimator.DNNClassifier(hidden_units=[8, 8, 8],
                                                feature_columns=colunas,
-                                               model_dir='MODEL',
+                                               model_dir='Model',
                                                n_classes=numPlantas)
     return classificador
 
@@ -26,7 +26,7 @@ def Classificador(numPlantas=20):
 
     classificador = tf.estimator.DNNClassifier(hidden_units=[8, 8, 8],
                                                feature_columns=colunas,
-                                               model_dir='MODEL',
+                                               model_dir='Model',
                                                n_classes=numPlantas)
     return classificador
 

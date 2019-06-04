@@ -1,5 +1,5 @@
-from IA.DadosTreinamento import *
-from IA.Classificador import *
+from Ia.DadosTreinamento import *
+from Ia.Classificador import *
 import pickle
 
 def Treinamento():
@@ -46,11 +46,11 @@ def TreinamentoSklearn():
 
     print("Treinamento concluido!!!\nScore: ",classificador.score(X_Treinamento,y_Treinamento))
 
-    filename = 'MODEL/digits_classifier.joblib.pkl'
+    filename = 'Model/digits_classifier.joblib.pkl'
     f = open(filename,'wb')
     pickle.dump(classificador, f)
 
     return classificador
 
-# Treinamento()
-TreinamentoSklearn()
+Treinamento()
+# TreinamentoSklearn()

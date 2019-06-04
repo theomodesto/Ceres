@@ -1,13 +1,13 @@
 import pickle
 
-from IA.Classificador import *
+from Ia.Classificador import *
 
 import pandas as pd
 
 from sklearn.externals import joblib
 
 def Teste():
-    TesteCampoMagro = pd.read_csv('INPUT_TESTE/CampoMagro.csv', delimiter=',')
+    TesteCampoMagro = pd.read_csv('Input_Teste/CampoMagro.csv', delimiter=',')
 
     # TesteCampoMagro = pd.DataFrame(data=TesteCampoMagro.mean(axis=0)).transpose()
 
@@ -22,11 +22,11 @@ def Teste():
         print(prev['class_ids'][0])
 
 def TesteSklearn():
-    TesteCampoMagro = pd.read_csv('INPUT_TESTE/CampoMagro.csv', delimiter=',')
+    TesteCampoMagro = pd.read_csv('Input_Teste/CampoMagro.csv', delimiter=',')
 
     print(TesteCampoMagro)
 
-    filename = 'MODEL/digits_classifier.joblib.pkl'
+    filename = 'Model/digits_classifier.joblib.pkl'
     with open(filename, 'rb') as f:
         classificador = pickle.load(f)
 

@@ -1,4 +1,4 @@
-from IA.Classificador import *
+from Ia.Classificador import *
 
 '''
 :return IdPlanta que está no banco
