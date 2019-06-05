@@ -13,7 +13,7 @@ def Classificador(numPlantas=20):
 
     colunas = [TemMax, TemMin, UmMax, UmMin]
 
-    classificador = tf.estimator.DNNClassifier(hidden_units=[8, 8],
+    classificador = tf.estimator.DNNClassifier(hidden_units=[8, 8, 8],
                                                feature_columns=colunas,
                                                model_dir='Model/tensorflow',
                                                n_classes=numPlantas,
@@ -34,7 +34,7 @@ def ClassificadorDadosAumentados(numPlantas=20):
                                                feature_columns=colunas,
                                                model_dir='Model/tensorflowDadosAumentados',
                                                n_classes=numPlantas,
-                                               optimizer = tf.train.ProximalAdagradOptimizer(
+                                               optimizer=tf.train.ProximalAdagradOptimizer(
                                                             learning_rate=0.1,
                                                             l1_regularization_strength=0.001
                                                             )
@@ -42,8 +42,9 @@ def ClassificadorDadosAumentados(numPlantas=20):
     return classificador
 
 def ClassificadorSklearn(NumPlantas=20):
-    from sklearn.tree import DecisionTreeClassifier
-    classificador = DecisionTreeClassifier()
+    from sklearn.neighbors import KNeighborsClassifier
+    classificador = KNeighborsClassifier(n_neighbors=NumPlantas, weights='distance')
+    # classificador = KNeighborsClassifier(n_neighbors=NumPlantas)
     return classificador
 
 
