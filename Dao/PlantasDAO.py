@@ -19,9 +19,6 @@ def gravarPlantaNoBanco(Planta):
         return False
 
 def verificarPlantaNoBanco(nomePlanta):
-    opa = Connection('Plantas').find({"Nome": nomePlanta})
-    print(opa)
-    if(Connection('Plantas').find({"Nome":nomePlanta}) == None):
+    if(list(Connection('Plantas').find({"Nome":nomePlanta})) == []):
         return True
-
     return False
