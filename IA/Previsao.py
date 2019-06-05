@@ -1,8 +1,5 @@
-from Ia.Classificador import *
+from IA.Classificador import *
 
-'''
-:return IdPlanta que está no banco
-'''
 def Previsao(DadosAPI):
 
     # DadosAPI = pd.DataFrame(data=DadosAPI.mean(axis=0)).transpose()
