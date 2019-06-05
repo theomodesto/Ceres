@@ -1,8 +1,15 @@
+import datetime
+
 from Model.DadosTreinamentoPlanta import *
 from Dao.PlantasDAO import *
 from Model.Planta import Planta
 
-planta = Planta('Arroz',21,21,12,12,0.8)
-print(type(planta))
-SetPlantas(planta)
+planta = Planta(1,'Arroz','Shit','Opa',"Muito usado no sushi","4 Dias","Muitos",5,["Planta","Espera","Colhe"])
+
+if(gravarPlantaNoBanco(planta)):
+    print("Deu boa")
+else:
+    print("Não deu")
+
+
 

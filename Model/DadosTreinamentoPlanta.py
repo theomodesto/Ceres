@@ -1,10 +1,11 @@
 class DadosTreinamentoPlanta:
-    def __init__(self,Nome,UmMin,UmMax,TempMin,TempMax,Porcentagem):
-        self.Nome = Nome
-        self.UmMin = UmMin
-        self.UmMax = UmMax
-        self.TempMin = TempMin
-        self.TempMax = TempMax
-        self.Porcentagem = Porcentagem
+    def __init__(self,IDPlanta,Nome,UmMin,UmMax,TempMin,TempMax):
+        self.idPlanta = IDPlanta
+        self.nome = Nome
+        self.umMin = UmMin
+        self.umMax = UmMax
+        self.tempMin = TempMin
+        self.tempMax = TempMax
+        self.porcentagem = None
 
 
