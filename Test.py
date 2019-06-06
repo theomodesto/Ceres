@@ -11,5 +11,8 @@ if(gravarPlantaNoBanco(planta)):
 else:
     print("Não deu")
 
+for plantas in retornaPlantasPorNome('Arroz'):
+    print(plantas)
+
 
 
