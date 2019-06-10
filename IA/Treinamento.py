@@ -5,23 +5,24 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 from Util.EscalonamentoDados import *
 
-steps = 10000
+steps = 100
 
 def Treinamento():
 
     X_Treinamento, y_Treinamento = DadosPlantas()
 
     X_Treinamento = EscalonamentoDados(X_Treinamento)
+    print(X_Treinamento.head())
 
     funcao_treinamento = tf.estimator.inputs.pandas_input_fn(x=X_Treinamento,
                                                              y=y_Treinamento,
-                                                             batch_size=4,
+                                                             batch_size=32,
                                                              num_epochs=None,
                                                              shuffle=False)
 
-    # numPlantas = len(y_Treinamento)
+    numPlantas = len(y_Treinamento)
 
-    classificador = Classificador()
+    classificador = Classificador(numPlantas=numPlantas)
 
     print("Treinando a IA !!!")
 
@@ -40,20 +41,20 @@ def TreinamentoDadosAumentados():
 
     X_Treinamento = EscalonamentoDados(X_Treinamento)
 
-    print(X_Treinamento)
+    print(X_Treinamento.head())
 
     # labEnc = LabelEncoder()
     # y_Treinamento = pd.DataFrame(data=labEnc.fit_transform(y_Treinamento))
 
     funcao_treinamento = tf.estimator.inputs.pandas_input_fn(x=X_Treinamento,
                                                              y=y_Treinamento,
-                                                             batch_size=4,
+                                                             batch_size=32,
                                                              num_epochs=None,
                                                              shuffle=False)
 
-    # numPlantas = len(y_Treinamento)
+    numPlantas = len(y_Treinamento)
 
-    classificador = ClassificadorDadosAumentados()
+    classificador = ClassificadorDadosAumentados(numPlantas=numPlantas)
 
     print("Treinando a IA !!!")
 
@@ -69,15 +70,11 @@ def TreinamentoDadosAumentados():
 def TreinamentoSklearn():
     X_Treinamento, y_Treinamento = DadosPlantasAumentados()
 
-    scaler = MinMaxScaler(feature_range=(0, 1))
-
-    # X_Treinamento = pd.DataFrame(data=scaler.fit_transform(X_Treinamento),
-    #                              columns=X_Treinamento.columns)
-
     X_Treinamento = EscalonamentoDados(X_Treinamento)
 
     numPlantas = len(y_Treinamento)
 
+    # classificador = ClassificadorSklearn(NumPlantas=numPlantas)
     classificador = ClassificadorSklearn()
 
     print("Treinando a IA !!!")
@@ -93,8 +90,3 @@ def TreinamentoSklearn():
     pickle.dump(classificador, f)
 
     return classificador
-
-
-Treinamento()
-TreinamentoDadosAumentados()
-TreinamentoSklearn()
