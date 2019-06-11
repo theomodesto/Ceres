@@ -29,7 +29,7 @@ def TesteDadosAumentados():
 
     # TesteCampoMagro = pd.DataFrame(data=TesteCampoMagro.mean(axis=0)).transpose()
 
-    # TesteCampoMagro = EscalonamentoDados(TesteCampoMagro)
+    TesteCampoMagro = EscalonamentoDados(TesteCampoMagro)
 
     funTeste = tf.estimator.inputs.pandas_input_fn(x=TesteCampoMagro,
                                                    shuffle=False)
@@ -46,7 +46,7 @@ def TesteDadosAumentados():
 def TesteSklearn():
     TesteCampoMagro = pd.read_csv('Input_Teste/CampoMagroMedia.csv', delimiter=',')
 
-    # TesteCampoMagro = EscalonamentoDados(TesteCampoMagro)
+    TesteCampoMagro = EscalonamentoDados(TesteCampoMagro)
 
     print(TesteCampoMagro.head())
 

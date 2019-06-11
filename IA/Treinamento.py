@@ -5,20 +5,17 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 from Util.EscalonamentoDados import *
 
-steps = 100
+steps = 1000
 
 def Treinamento():
 
     X_Treinamento, y_Treinamento = DadosPlantas()
 
-    print(X_Treinamento.info())
-
-    # X_Treinamento = EscalonamentoDados(X_Treinamento)
-    # print(X_Treinamento.head())
+    X_Treinamento = EscalonamentoDados(X_Treinamento)
 
     funcao_treinamento = tf.estimator.inputs.pandas_input_fn(x=X_Treinamento,
                                                              y=y_Treinamento,
-                                                             batch_size=1,
+                                                             batch_size=32,
                                                              num_epochs=None,
                                                              shuffle=False)
 
@@ -41,7 +38,7 @@ def TreinamentoDadosAumentados():
 
     X_Treinamento, y_Treinamento = DadosPlantasAumentados()
 
-    # X_Treinamento = EscalonamentoDados(X_Treinamento)
+    X_Treinamento = EscalonamentoDados(X_Treinamento)
 
     print(X_Treinamento.head())
 
@@ -68,7 +65,7 @@ def TreinamentoDadosAumentados():
 def TreinamentoSklearn():
     X_Treinamento, y_Treinamento = DadosPlantasAumentados()
 
-    # X_Treinamento = EscalonamentoDados(X_Treinamento)
+    X_Treinamento = EscalonamentoDados(X_Treinamento)
 
     numPlantas = len(y_Treinamento)
 
@@ -78,9 +75,6 @@ def TreinamentoSklearn():
     print("Treinando a IA !!!")
 
     classificador.fit(X_Treinamento, y_Treinamento)
-
-    # from sklearn import tree
-    # tree.plot_tree(classificador)
 
     print("Treinamento concluido !!!\n"
           "Score: ",

@@ -3,9 +3,9 @@ from IA.Teste import *
 
 if __name__ == '__main__':
     # Treinamento()
-    TreinamentoDadosAumentados()
+    # TreinamentoDadosAumentados()
     TreinamentoSklearn()
 
     # Teste()
-    TesteDadosAumentados()
+    # TesteDadosAumentados()
     TesteSklearn()

@@ -42,11 +42,9 @@ def ClassificadorDadosAumentados(numPlantas=36):
     return classificador
 
 def ClassificadorSklearn(NumPlantas=36):
-    # from sklearn.neighbors import KNeighborsClassifier
-    from sklearn.tree import DecisionTreeClassifier
-    # classificador = KNeighborsClassifier(n_neighbors=NumPlantas, weights='distance')
-    classificador = DecisionTreeClassifier(random_state=0)
-
+    from sklearn.neighbors import KNeighborsClassifier
+    classificador = KNeighborsClassifier(n_neighbors=NumPlantas, weights='distance')
+    # classificador = KNeighborsClassifier(random_state=0)
 
     return classificador
 

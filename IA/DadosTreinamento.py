@@ -24,7 +24,9 @@ def AumentoRepresentatividade(dados):
     # f = open('output\\DadosAumentadosPlantas.csv', 'w', encoding='utf8')
     # header = "idPlanta,Tem,Umi,Prec\n"
     # f.write(header)
+    precMedia = 0
     for line in dados.values:
+        precMedia+=int(line[2])
         for prec in range(int(line[2]),int(line[1])):
             for tem in range(int(line[4]),int(line[3])):
                 for umi in range(int(line[6]),int(line[5])):
