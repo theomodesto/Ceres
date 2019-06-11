@@ -13,7 +13,7 @@ def Classificador(numPlantas=36):
 
     colunas = [TemMax, TemMin, UmMax, UmMin,PrecMin,PrecMax]
 
-    classificador = tf.estimator.DNNClassifier(hidden_units=[8, 8 ],
+    classificador = tf.estimator.DNNClassifier(hidden_units=[8, 8],
                                                feature_columns=colunas,
                                                model_dir='Model/tensorflow',
                                                n_classes=numPlantas,
@@ -42,9 +42,12 @@ def ClassificadorDadosAumentados(numPlantas=36):
     return classificador
 
 def ClassificadorSklearn(NumPlantas=36):
-    from sklearn.neighbors import KNeighborsClassifier
-    classificador = KNeighborsClassifier(n_neighbors=NumPlantas, weights='distance')
-    # classificador = KNeighborsClassifier(n_neighbors=NumPlantas)
+    # from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.tree import DecisionTreeClassifier
+    # classificador = KNeighborsClassifier(n_neighbors=NumPlantas, weights='distance')
+    classificador = DecisionTreeClassifier(random_state=0)
+
+
     return classificador
 
 

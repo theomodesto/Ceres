@@ -11,23 +11,25 @@ def Treinamento():
 
     X_Treinamento, y_Treinamento = DadosPlantas()
 
-    X_Treinamento = EscalonamentoDados(X_Treinamento)
-    print(X_Treinamento.head())
+    print(X_Treinamento.info())
+
+    # X_Treinamento = EscalonamentoDados(X_Treinamento)
+    # print(X_Treinamento.head())
 
     funcao_treinamento = tf.estimator.inputs.pandas_input_fn(x=X_Treinamento,
                                                              y=y_Treinamento,
-                                                             batch_size=32,
+                                                             batch_size=1,
                                                              num_epochs=None,
                                                              shuffle=False)
 
     numPlantas = len(y_Treinamento)
 
+    # classificador = Classificador(numPlantas=numPlantas)
     classificador = Classificador(numPlantas=numPlantas)
 
     print("Treinando a IA !!!")
 
-    classificador.train(input_fn=funcao_treinamento,
-                        steps=steps)
+    classificador.train(input_fn=funcao_treinamento, steps=steps)
 
     eval = classificador.evaluate(input_fn=funcao_treinamento,steps=steps)
 
@@ -39,12 +41,9 @@ def TreinamentoDadosAumentados():
 
     X_Treinamento, y_Treinamento = DadosPlantasAumentados()
 
-    X_Treinamento = EscalonamentoDados(X_Treinamento)
+    # X_Treinamento = EscalonamentoDados(X_Treinamento)
 
     print(X_Treinamento.head())
-
-    # labEnc = LabelEncoder()
-    # y_Treinamento = pd.DataFrame(data=labEnc.fit_transform(y_Treinamento))
 
     funcao_treinamento = tf.estimator.inputs.pandas_input_fn(x=X_Treinamento,
                                                              y=y_Treinamento,
@@ -58,19 +57,18 @@ def TreinamentoDadosAumentados():
 
     print("Treinando a IA !!!")
 
-    classificador.train(input_fn=funcao_treinamento,
-                        steps=steps)
+    classificador.train(input_fn=funcao_treinamento, steps=steps)
 
     eval = classificador.evaluate(input_fn=funcao_treinamento, steps=steps)
 
-    print("Treinamento concluido !!!\nScore:",eval)
+    print("Treinamento concluido !!!\nScore:", eval)
 
     return True
 
 def TreinamentoSklearn():
     X_Treinamento, y_Treinamento = DadosPlantasAumentados()
 
-    X_Treinamento = EscalonamentoDados(X_Treinamento)
+    # X_Treinamento = EscalonamentoDados(X_Treinamento)
 
     numPlantas = len(y_Treinamento)
 
@@ -80,6 +78,9 @@ def TreinamentoSklearn():
     print("Treinando a IA !!!")
 
     classificador.fit(X_Treinamento, y_Treinamento)
+
+    # from sklearn import tree
+    # tree.plot_tree(classificador)
 
     print("Treinamento concluido !!!\n"
           "Score: ",

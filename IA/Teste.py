@@ -46,9 +46,9 @@ def TesteDadosAumentados():
 def TesteSklearn():
     TesteCampoMagro = pd.read_csv('Input_Teste/CampoMagroMedia.csv', delimiter=',')
 
-    TesteCampoMagro = EscalonamentoDados(TesteCampoMagro)
+    # TesteCampoMagro = EscalonamentoDados(TesteCampoMagro)
 
-    print(TesteCampoMagro)
+    print(TesteCampoMagro.head())
 
     filename = 'Model/sklearn/digits_classifier.joblib.pkl'
     with open(filename, 'rb') as f:
