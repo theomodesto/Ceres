@@ -23,24 +23,18 @@ def Teste():
     for prev in classificador.predict(input_fn=funTeste):
         print(prev['class_ids'][0])
 
-
 def TesteDadosAumentados():
     TesteCampoMagro = pd.read_csv('Input_Teste/CampoMagroMedia.csv', delimiter=',')
-
-    # TesteCampoMagro = pd.DataFrame(data=TesteCampoMagro.mean(axis=0)).transpose()
 
     TesteCampoMagro = EscalonamentoDados(TesteCampoMagro)
 
     funTeste = tf.estimator.inputs.pandas_input_fn(x=TesteCampoMagro,
                                                    shuffle=False)
 
-
-    classificador = ClassificadorDadosAumentados(numPlantas=2829294)
+    classificador = ClassificadorDadosAumentados()
 
     for prev in classificador.predict(input_fn=funTeste):
-        idPlanta = prev['class_ids'][0]
-        print(idPlanta, prev['probabilities'][idPlanta])
-        # print(prev)
+        print(prev)
 
 
 def TesteSklearn():
