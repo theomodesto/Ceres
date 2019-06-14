@@ -1,12 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Principal</title>
+    <title>Ceres</title>
+		<meta charset="utf-8">	
+        <link rel="stylesheet" href="main.css">	
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:600|Raleway:300&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    {% for name in result %}
-    <h1>Você, plantou {{name['Nome']}} da categoria {{name['Categoria']}}</h1>
+    
+    <div class="bar menu" id="menu">
+            <div class="title">Aplicativo</div>
+    </div>
+    
+    {% for planta in result %}
+    <div class="page page-margin">
+        <div class="cards">
+          <div class="card">
+		    <div class="up"><img src="https://cdn.pixabay.com/photo/2016/10/18/19/24/carrot-1751148_960_720.png"> </div>
+            <div class="titulo"> {{planta['Nome']}} </div>
+            <div class="descricao">{{planta['descricao']}}</div>       
+            <div class="ver">
+                <div class="botao_nome">CONHEÇA<div>
+            </div>   
+		 </div>
+       </div>
+    </div>    
     {% endfor %}
+              
 </body>
 </html>
