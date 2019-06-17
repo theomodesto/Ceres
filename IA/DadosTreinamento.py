@@ -1,4 +1,4 @@
-from Util.SingletonConnection import Connection
+from ConnectionMongoDB import Connection
 import pandas as pd
 
 def DadosPlantas():

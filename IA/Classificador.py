@@ -22,7 +22,7 @@ def Classificador(numPlantas=36):
                                                ))
     return classificador
 
-def ClassificadorDadosAumentados(numPlantas=1271655):
+def ClassificadorDadosAumentados(numPlantas=1163654):
 
     Tem = numeric_column(key='Tem')
     Umi = numeric_column(key='Umi')

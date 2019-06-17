@@ -1,4 +1,4 @@
-from Util.SingletonConnection import *
+from ConnectionMongoDB import *
 
 def gravarPlantaNoBanco(Planta):
 	if(verificarPlantaNoBanco(Planta.nome)):
