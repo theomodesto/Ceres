@@ -9,7 +9,7 @@ def DadosPlantas():
     return X,y
 
 def DadosPlantasAumentados():
-    dfPlantas = pd.DataFrame(data=list(Connection("PlantasTreinamento").find()))
+    dfPlantas = pd.DataFrame(data=list(Connection("PlantasTreinamento").find().clone()))
     DadosAumentados = AumentoRepresentatividade(dfPlantas)
     y = DadosAumentados.idPlanta
     X = DadosAumentados.drop(['idPlanta'],axis=1)
@@ -24,7 +24,6 @@ def AumentoRepresentatividade(dados):
     # f = open('output\\DadosAumentadosPlantas.csv', 'w', encoding='utf8')
     # header = "idPlanta,Tem,Umi,Prec\n"
     # f.write(header)
-    # precMedia = 0
     for line in dados.values:
         for prec in range(int(line[2]),int(line[1])):
             for tem in range(int(line[4]),int(line[3])):

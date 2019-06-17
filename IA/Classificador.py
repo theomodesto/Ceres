@@ -22,7 +22,7 @@ def Classificador(numPlantas=36):
                                                ))
     return classificador
 
-def ClassificadorDadosAumentados(numPlantas=1163654):
+def ClassificadorDadosAumentados(numPlantas=37):
 
     Tem = numeric_column(key='Tem')
     Umi = numeric_column(key='Umi')
@@ -30,17 +30,10 @@ def ClassificadorDadosAumentados(numPlantas=1163654):
 
     colunas = [Tem, Umi, Prec]
 
-    classificador = tf.estimator.DNNClassifier(hidden_units=[8, 8, 8],
+    classificador = tf.estimator.DNNClassifier(hidden_units=[64, 64, 64],
                                                feature_columns=colunas,
                                                model_dir='Model/tensorflowDadosAumentados',
                                                n_classes=numPlantas,
-                                               optimizer=lambda: tf.train.AdamOptimizer(
-                                                   learning_rate=tf.train.exponential_decay(
-                                                       learning_rate=0.01,
-                                                       global_step=tf.train.get_global_step(),
-                                                       decay_steps=10000,
-                                                       decay_rate=0.96)
-                                                   )
                                                )
 
     # classificador = tf.estimator.LinearClassifier(
@@ -51,11 +44,11 @@ def ClassificadorDadosAumentados(numPlantas=1163654):
 
     return classificador
 
-def ClassificadorSklearn(NumPlantas=36):
+def ClassificadorSklearn(NumPlantas=37):
     from sklearn.neighbors import KNeighborsClassifier
-    from sklearn.naive_bayes import GaussianNB # 0.84 Precisão #
-    # classificador = KNeighborsClassifier(n_neighbors=NumPlantas, weights='distance')
-    classificador = GaussianNB()
+    # from sklearn.naive_bayes import GaussianNB # 0.84 Precisão #
+    classificador = KNeighborsClassifier(n_neighbors=NumPlantas, weights='distance')
+    # classificador = GaussianNB()
 
     return classificador
 
