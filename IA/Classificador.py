@@ -22,7 +22,7 @@ def Classificador(numPlantas=36):
                                                ))
     return classificador
 
-def ClassificadorDadosAumentados(numPlantas=37):
+def ClassificadorDadosAumentados(numPlantas=25):
 
     Tem = numeric_column(key='Tem')
     Umi = numeric_column(key='Umi')
@@ -30,7 +30,7 @@ def ClassificadorDadosAumentados(numPlantas=37):
 
     colunas = [Tem, Umi, Prec]
 
-    classificador = tf.estimator.DNNClassifier(hidden_units=[64, 64, 64],
+    classificador = tf.estimator.DNNClassifier(hidden_units=[128, 128, 128],
                                                feature_columns=colunas,
                                                model_dir='Model/tensorflowDadosAumentados',
                                                n_classes=numPlantas,

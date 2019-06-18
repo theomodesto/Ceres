@@ -44,12 +44,12 @@ def TesteDadosAumentados():
 
 def MaioresValoes(Probabilidade):
     Maiores = []
-    valores = 0.2
+    valores = 0.1
     idPlanta = 0
     for a in Probabilidade:
-        idPlanta = idPlanta + 1
         if a > valores:
             Maiores.append({"IdPlanta":idPlanta,'Probabilidade':a})
+        idPlanta = idPlanta + 1
 
     print(Maiores)
 
