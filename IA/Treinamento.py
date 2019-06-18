@@ -5,14 +5,13 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 from Util.EscalonamentoDados import *
 
-steps = 100
+steps = 50000
 
 def Treinamento():
 
     X_Treinamento, y_Treinamento = DadosPlantas()
 
     X_Treinamento = EscalonamentoDados(X_Treinamento)
-    print(X_Treinamento.head())
 
     funcao_treinamento = tf.estimator.inputs.pandas_input_fn(x=X_Treinamento,
                                                              y=y_Treinamento,
@@ -22,12 +21,12 @@ def Treinamento():
 
     numPlantas = len(y_Treinamento)
 
+    # classificador = Classificador(numPlantas=numPlantas)
     classificador = Classificador(numPlantas=numPlantas)
 
     print("Treinando a IA !!!")
 
-    classificador.train(input_fn=funcao_treinamento,
-                        steps=steps)
+    classificador.train(input_fn=funcao_treinamento, steps=steps)
 
     eval = classificador.evaluate(input_fn=funcao_treinamento,steps=steps)
 
@@ -39,31 +38,40 @@ def TreinamentoDadosAumentados():
 
     X_Treinamento, y_Treinamento = DadosPlantasAumentados()
 
-    X_Treinamento = EscalonamentoDados(X_Treinamento)
+    # X_Treinamento = EscalonamentoDados(X_Treinamento)
 
-    print(X_Treinamento.head())
+    from sklearn.model_selection import train_test_split
+    X_train, X_test, y_train, y_test = train_test_split(X_Treinamento,
+                                                        y_Treinamento,
+                                                        test_size=0.1,
+                                                        random_state=42)
 
-    # labEnc = LabelEncoder()
-    # y_Treinamento = pd.DataFrame(data=labEnc.fit_transform(y_Treinamento))
+    print(X_train.head())
+    print(y_train.head())
 
-    funcao_treinamento = tf.estimator.inputs.pandas_input_fn(x=X_Treinamento,
-                                                             y=y_Treinamento,
+    funcao_treinamento = tf.estimator.inputs.pandas_input_fn(x=X_train,
+                                                             y=y_train,
                                                              batch_size=32,
-                                                             num_epochs=None,
+                                                             num_epochs=10,
                                                              shuffle=False)
 
-    numPlantas = len(y_Treinamento)
+    funcao_teste = tf.estimator.inputs.pandas_input_fn(x=X_test,
+                                                       y=y_test,
+                                                       batch_size=32,
+                                                       num_epochs=None,
+                                                       shuffle=False)
 
-    classificador = ClassificadorDadosAumentados(numPlantas=numPlantas)
+    #numPlantas = len(list(set(y_Treinamento)))
+
+    classificador = ClassificadorDadosAumentados()
 
     print("Treinando a IA !!!")
 
-    classificador.train(input_fn=funcao_treinamento,
-                        steps=steps)
+    classificador.train(input_fn=funcao_treinamento, steps=steps)
 
-    eval = classificador.evaluate(input_fn=funcao_treinamento, steps=steps)
+    eval = classificador.evaluate(input_fn=funcao_teste, steps=steps)
 
-    print("Treinamento concluido !!!\nScore:",eval)
+    print("Treinamento concluido !!!\nScore:", eval)
 
     return True
 
@@ -72,18 +80,26 @@ def TreinamentoSklearn():
 
     X_Treinamento = EscalonamentoDados(X_Treinamento)
 
-    numPlantas = len(y_Treinamento)
+    from sklearn.model_selection import train_test_split
+    X_train, X_test, y_train, y_test = train_test_split(X_Treinamento, y_Treinamento, test_size=0.3, random_state=42)
 
-    # classificador = ClassificadorSklearn(NumPlantas=numPlantas)
     classificador = ClassificadorSklearn()
 
     print("Treinando a IA !!!")
 
-    classificador.fit(X_Treinamento, y_Treinamento)
+    classificador.fit(X_train, y_train)
 
     print("Treinamento concluido !!!\n"
           "Score: ",
-          classificador.score(X_Treinamento,y_Treinamento))
+          classificador.score(X_test,y_test))
+
+    predict = classificador.predict(X_test)
+
+    from sklearn.metrics import accuracy_score
+    from sklearn.metrics import mean_absolute_error
+
+    print("Accuracy: "+str(accuracy_score(y_test,predict)))
+    print("MAE: "+str(mean_absolute_error(y_test,predict)))
 
     filename = 'Model/sklearn/digits_classifier.joblib.pkl'
     f = open(filename,'wb')
