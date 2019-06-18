@@ -1,4 +1,4 @@
-from ConnectionMongoDB import Connection
+from DAL.ConnectionMongoDB import *
 import pandas as pd
 
 def DadosPlantas():

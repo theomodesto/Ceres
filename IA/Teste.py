@@ -59,16 +59,16 @@ def TesteSklearn():
 
     TesteCampoMagro = EscalonamentoDados(TesteCampoMagro)
 
-    print(TesteCampoMagro.head())
-
     filename = 'Model/sklearn/digits_classifier.joblib.pkl'
     with open(filename, 'rb') as f:
         classificador = pickle.load(f)
 
-        for prob in classificador.predict_proba(TesteCampoMagro):
-            print(prob)
+        matrix = classificador.kneighbors(TesteCampoMagro, return_distance=True)
+        print(matrix)
+
 
         for prev in classificador.predict(TesteCampoMagro):
             print("IdPlanta:",prev)
+            print(matrix[0][0][prev])
 
 
