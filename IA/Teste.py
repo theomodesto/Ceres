@@ -1,7 +1,7 @@
 import pickle
 
 from IA.Classificador import *
-from Util.EscalonamentoDados import *
+from Util.NormalizacaoDados import *
 
 import pandas as pd
 

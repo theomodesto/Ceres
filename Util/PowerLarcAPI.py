@@ -1,12 +1,16 @@
 from Model.Clima import *
 import requests
-import json
-import math
-
-from Util.ParserJsonAPI import ParseJson
 import pandas as pd
 
 def GetDadosAPI(lat,lon,dataInicio,dataFinal):
+    ano = "2018"
+    estacoes = {
+        "Outono": {"Inicio": ano + "0320", "Final": ano + "0620"},
+        "Inverno": {"Inicio": ano + "0621", "Final": ano + "0922"},
+        "Primavera": {"Inicio": ano + "0922", "Final": ano + "1221"},
+        "Verão": {"Inicio": ano + "01222", "Final": ano + "0320"}
+    }
+
     resp = requests.get('https://power.larc.nasa.gov/cgi-bin/v1/DataAccess.py?' 
                         'request=execute&' \
                         'identifier=SinglePoint&' \
@@ -28,8 +32,7 @@ def GetDadosAPI(lat,lon,dataInicio,dataFinal):
         prec = f['properties']['parameter']['PRECTOT']
         for key in temp:
             dadosClima.append({"TemMed":temp[key], "UmiMed":umid[key], "Prec":prec[key]})
-    MediaClima(dadosClima)
-    return dadosClima
+    return MediaClima(dadosClima)
 
 def MediaClima(DadosClima):
     quantidade = len(DadosClima)
@@ -55,16 +58,10 @@ def MediaClima(DadosClima):
 
     dados = pd.DataFrame.from_dict(data=dictMedia)
     print(dados)
-    return mediaTem,mediaUmi,mediaPrec
+    return dados
 
 # GetDadosAPI(35,40,20160301,20160331)
-ano = "2018"
-estacoes = {
-    "Outono": {"Inicio": ano + "0320", "Final": ano + "0620"},
-    "Inverno": {"Inicio": ano + "0621", "Final": ano + "0922"},
-    "Primavera": {"Inicio": ano + "0922", "Final": ano + "1221"},
-    "Verão": {"Inicio": ano + "01222", "Final": ano + "0320"}
-}
+
 
 
 
