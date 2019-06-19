@@ -57,5 +57,14 @@ def MediaClima(DadosClima):
     print(dados)
     return mediaTem,mediaUmi,mediaPrec
 
-GetDadosAPI(35,40,20160301,20160331)
+# GetDadosAPI(35,40,20160301,20160331)
+ano = "2018"
+estacoes = {
+    "Outono": {"Inicio": ano + "0320", "Final": ano + "0620"},
+    "Inverno": {"Inicio": ano + "0621", "Final": ano + "0922"},
+    "Primavera": {"Inicio": ano + "0922", "Final": ano + "1221"},
+    "Verão": {"Inicio": ano + "01222", "Final": ano + "0320"}
+}
+
+
 
