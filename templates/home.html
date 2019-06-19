@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <title>Ceres</title>
+		<meta charset="utf-8">	
+        <link rel="stylesheet" href={{url_for("static",filename="main.css")}}>
+        <script type="text/javascript" src={{url_for("static",filename="main.js")}}> </script>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:600|Raleway:300|Roboto&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+    <div class="bar menu" id="menu">
+            <div class="title">C E R E S</div>
+    </div>
+
+    {% for planta in result %}
+
+    <div class="detalhes" id="detalhes">
+        <button class="voltar" id="sair_detalhes{{planta['idPlanta']}}" onclick="detalhes({{planta['idPlanta']}})" style="display: none;"></button>
+        <div class="content" id="cartao_detalhes{{planta['idPlanta']}}">
+            <div class="dot"><img class="foto" src="https://cdn.pixabay.com/photo/2016/10/18/19/24/carrot-1751148_960_720.png"></div>
+            <div class="titulo"> {{planta['Nome']}} </div>
+            <div class="descricao"> {{planta['descricao']}} </div>
+            <div class="especificacao"> <strong>Caloria:</strong> {{planta['Calorias']}}</div>
+            <div class="especificacao"> <strong>Tempo:</strong> {{planta['Tempo']}} </div>
+            <div class="especificacao" style="float: none; width: 90%; margin: auto;"> <strong>Nuntrientes:</strong> {{planta['Nutrientes']}} </div>
+
+            <form action ="{{ url_for('Plante', id=planta['idPlanta']) }}" method="post">
+                <div class="botao"><button type="submit" class="title" > PLANTE </button></div>
+            </form>
+
+        </div>
+    </div>
+
+    {% endfor %}
+
+
+    <div class="page page-margin"> 
+
+    {% for planta in result %}
+
+        <div class="cards">
+            <div class="card">
+	           <div class="up"> <img src="https://cdn.pixabay.com/photo/2016/10/18/19/24/carrot-1751148_960_720.png"> </div>
+                <div class="titulo"> {{planta['Nome']}} </div>
+                <div class="descricao">{{planta['Descricao']}}</div>
+                <div class="ver" onclick="detalhes({{planta['idPlanta']}})">
+                    <div class="botao_nome" >CONHEÇA</div>'
+                </div>
+	        </div>
+        </div>
+
+    {% endfor %}
+
+
+    </div> 
+
+
+</body>
+</html>
