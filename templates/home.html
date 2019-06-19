@@ -24,7 +24,11 @@
             <div class="especificacao"> <strong>Caloria:</strong> {{planta['Calorias']}}</div>
             <div class="especificacao"> <strong>Tempo:</strong> {{planta['Tempo']}} </div>
             <div class="especificacao" style="float: none; width: 90%; margin: auto;"> <strong>Nuntrientes:</strong> {{planta['Nutrientes']}} </div>
-            <div class="botao"><a href="/Plante" class="title" > PLANTE </a></div>
+
+            <form action ="{{ url_for('Plante', id=planta['idPlanta']) }}" method="post">
+                <div class="botao"><button type="submit" class="title" > PLANTE </button></div>
+            </form>
+
         </div>
     </div>
 

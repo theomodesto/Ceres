@@ -239,19 +239,22 @@ img {
 
 
 .detalhes .botao .title {
+    border-radius: 15px;
+    border: none;
+    background-color: #13AD65;
     text-decoration: none;
     width: 100%;
-    	height: 100%;
+    height: 100%;
     color: white;
-    	position: relative;
-    	top: 100%;
-    	transform: translateY(-100%);
-    	text-align: center;
-    	font-size: 16px;
-    	z-index: 1;
-    	display: flex;
-    	justify-content: center;
-    	align-items: center;
+    position: relative;
+    top: 100%;
+    transform: translateY(-100%);
+    text-align: center;
+    font-size: 16px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .detalhes .voltar {

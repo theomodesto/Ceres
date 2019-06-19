@@ -12,10 +12,17 @@ def testHome():
     return render_template('home.html',result = plantas)
 
 
-@app.route('/Plante')
-def labeling():
+@app.route('/Plante/<id>', methods=['POST'])
+def Plante(id):
+    passos = ['']
+    for planta in list(retornaTodasPlantas()):
+        print(planta['idPlanta'])
+        if planta['idPlanta'] == id:
+            print(planta['Passos'])
+            passos = planta['Passos']
 
-    return render_template('passos.html')
+    print(passos)
+    return render_template('passos.html', passos = passos)
 
 
 @app.route('/geoloc/<lat>/<log>')
