@@ -3,7 +3,7 @@ from IA.Classificador import *
 import pickle
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
-from Util.EscalonamentoDados import *
+from Util.NormalizacaoDados import *
 
 steps = 50000
 

@@ -1,18 +1,29 @@
+from urllib import request
+
 from flask import  Flask , render_template
 from DAL.PlantasDAO import *
 app = Flask(__name__)
 
-@app.route("/")
-def hello_world():
-    return "Hello World!"
 
-# @app.route("/plantas")
-# def chamarHTML():
-#     '''for planta in retornaPlantasPorId(int(id)):
-#         name = planta["Nome"]
-#         Categoria = planta["Categoria"]'''
-#     #print(list(retornaPlantasPorId(int(id))))
-#     return render_template('Index.html',result = retornaTodasPlantas())
+@app.route('/')
+def testHome():
+
+    plantas = list(retornaTodasPlantas())
+    return render_template('home.html',result = plantas)
+
+
+@app.route('/Plante/<id>', methods=['POST'])
+def Plante(id):
+    passos = ['']
+    for planta in list(retornaTodasPlantas()):
+        print(planta['idPlanta'])
+        if planta['idPlanta'] == id:
+            print(planta['Passos'])
+            passos = planta['Passos']
+
+    print(passos)
+    return render_template('passos.html', passos = passos)
+
 
 @app.route('/geoloc/<lat>/<log>')
 def show_user_profile(lat,log):

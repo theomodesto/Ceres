@@ -2,8 +2,8 @@
 <head>
     <title>Ceres</title>
 		<meta charset="utf-8">	
-        <link rel="stylesheet" href="main.css">	
-        <script type="text/javascript" src='main.js'> </script>
+         <link rel="stylesheet" href={{url_for("static",filename="main.css")}}>
+        <script type="text/javascript" src={{url_for("static",filename="main.js")}}> </script>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:600|Raleway:300|Roboto&display=swap" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -14,38 +14,19 @@
     </div>
 
      <div class="page page-margin"> 
+
+      {% for passo in passos %}
+
         <div class="passos">
             <div class="number">1</div>
-            <div class="howto"> Primeiro você pega a semente, encontra o solo para ela crescer bem feliz, feito isso mete bronca, é só furar e colcocar a semente, agora vamos para o próximo passo possível. 
+            <div class="howto">{{passo}}
             </div>
         </div>
 
-     <div class="passos">
-            <div class="number">2</div>
-            <div class="howto"> Primeiro você pega a semente, encontra o solo para ela crescer bem feliz, feito isso mete bronca, é só furar e colcocar a semente, agora vamos para o próximo passo possível. 
-            </div>
-        </div>
-
-
-    <div class="passos">
-            <div class="number">3</div>
-            <div class="howto"> Primeiro você pega a semente, encontra o solo para ela crescer bem feliz, feito isso mete bronca, é só furar e colcocar a semente, agora vamos para o próximo passo possível. 
-            </div>
-        </div>
-
-    <div class="passos">
-            <div class="number">4</div>
-            <div class="howto"> Primeiro você pega a semente, encontra o solo para ela crescer bem feliz, feito isso mete bronca, é só furar e colcocar a semente, agora vamos para o próximo passo possível. 
-            </div>
-        </div>
-
-    <div class="passos">
-            <div class="number">5</div>
-            <div class="howto"> Primeiro você pega a semente, encontra o solo para ela crescer bem feliz, feito isso mete bronca, é só furar e colcocar a semente, agora vamos para o próximo passo possível. 
-            </div>
-        </div>   
 
      </div>
+
+    {% endfor %}
 
 </body>
 </html>
