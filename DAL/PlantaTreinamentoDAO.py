@@ -1,4 +1,4 @@
-from Util.SingletonConnection import *
+from DAL.ConnectionMongoDB import *
 
 
 def gravarPlantaNoBanco(PlantaTreinamento):
