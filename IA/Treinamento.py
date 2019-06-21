@@ -9,33 +9,6 @@ steps = 50000
 
 def Treinamento():
 
-    X_Treinamento, y_Treinamento = DadosPlantas()
-
-    X_Treinamento = EscalonamentoDados(X_Treinamento)
-
-    funcao_treinamento = tf.estimator.inputs.pandas_input_fn(x=X_Treinamento,
-                                                             y=y_Treinamento,
-                                                             batch_size=32,
-                                                             num_epochs=None,
-                                                             shuffle=False)
-
-    numPlantas = len(y_Treinamento)
-
-    # classificador = Classificador(numPlantas=numPlantas)
-    classificador = Classificador(numPlantas=numPlantas)
-
-    print("Treinando a IA !!!")
-
-    classificador.train(input_fn=funcao_treinamento, steps=steps)
-
-    eval = classificador.evaluate(input_fn=funcao_treinamento,steps=steps)
-
-    print("Treinamento concluido !!!\nScore:",eval)
-
-    return True
-
-def TreinamentoDadosAumentados():
-
     X_Treinamento, y_Treinamento = DadosPlantasAumentados()
 
     # X_Treinamento = EscalonamentoDados(X_Treinamento)
@@ -63,7 +36,7 @@ def TreinamentoDadosAumentados():
 
     #numPlantas = len(list(set(y_Treinamento)))
 
-    classificador = ClassificadorDadosAumentados()
+    classificador = Classificador()
 
     print("Treinando a IA !!!")
 

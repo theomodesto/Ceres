@@ -6,12 +6,14 @@ from Util.PowerLarcAPI import *
 
 if __name__ == '__main__':
     # Treinamento()
-    # TreinamentoDadosAumentados()
     # TreinamentoSklearn()
 
     # Teste()
-    # TesteDadosAumentados()
     # TesteSklearn()
 
+    dadosClima = GetDadosAPI(32.658317, 3.544376, 2018)
 
-    dadosClima = Previsao()
+    for key in dadosClima:
+        print(key)
+        Previsao(dadosClima[key])
+        # print(dadosClima[key])
