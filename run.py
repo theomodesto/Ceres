@@ -11,13 +11,9 @@ def Home():
 
 @app.route('/Plante/<id>',methods=['GET'])
 def Plante(id):
-    # passos = []
-    # for planta in list(retornaTodasPlantas()):
-    #     if planta['idPlanta'] == id:
-    #         passos = planta['Passos']
-    planta = retornaPlantasPorId(id)[0]
+    planta = retornaPlantasPorId(id)
     return render_template('passos.html'
-                           ,passos=planta["Passos"]
+                           , passos=planta["Passos"]
                            )
 
 @app.route('/geoloc/<lat>/<log>')

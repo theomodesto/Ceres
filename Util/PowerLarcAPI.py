@@ -8,7 +8,7 @@ def GetDadosAPI(lat,lon,ano):
         "Outono": {"Inicio": str(ano) + "0320", "Final": str(ano) + "0620"},
         "Inverno": {"Inicio": str(ano) + "0621", "Final": str(ano) + "0922"},
         "Primavera": {"Inicio": str(ano) + "0922", "Final": str(ano) + "1221"},
-        "Verão": {"Inicio": str(ano) +"1222", "Final":str((ano+1)) + "0320"}
+        "Verao": {"Inicio": str(ano) +"1222", "Final":str((ano+1)) + "0320"}
     }
 
     mediaEstacoes = {}
@@ -56,7 +56,7 @@ def MediaClima(DadosClima):
 
     mediaTem = somaTem/quantidade
     mediaUmi = somaUmi/quantidade
-    mediaPrec = (somaPrec/quantidade)*100
+    mediaPrec = ((somaPrec/quantidade)*100)
 
     dictMedia = {}
 

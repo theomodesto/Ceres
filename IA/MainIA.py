@@ -11,9 +11,4 @@ if __name__ == '__main__':
     # Teste()
     # TesteSklearn()
 
-    dadosClima = GetDadosAPI(32.658317, 3.544376, 2018)
-
-    for key in dadosClima:
-        print(key)
-        Previsao(dadosClima[key])
-        # print(dadosClima[key])
+    Previsao(GetDadosAPI(32.658317, 3.544376, 2018))
