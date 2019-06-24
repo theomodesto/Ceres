@@ -1,5 +1,7 @@
 from flask import  Flask, render_template,request
 from DAL.PlantasDAO import *
+from IA.Previsao import *
+from Util.PowerLarcAPI import *
 
 app = Flask(__name__)
 
@@ -16,8 +18,17 @@ def Plante(id):
                            , passos=planta["Passos"]
                            )
 
-@app.route('/geoloc/<lat>/<log>')
-def show_user_profile(lat,log):
-    return  lat + log
+@app.route('previsao/<lat>/<lon>')
+def previsao(lat,lon):
+    previsoes = []
+    ano = datetime.year()
+    Dados = GetDadosAPI(lat, lon, ano)
+    for key in Dados:
+        previsao = Previsao(Dados[key])
+        planta = retornaPlantasPorId(previsao['IdPlanta'])
+        previsoes.append([planta, previsao['Probabilidade']])
+    return render_template('plantas.html', previsoes)
+
+
 
 app.run()

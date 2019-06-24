@@ -5,23 +5,20 @@ def Previsao(Dados):
     '''
     :param Dados tem que ser dict
     '''
-    for key in Dados:
 
-        Dados = pd.DataFrame(data=[Dados[key]])
+    Dados = pd.DataFrame.from_dict(data=[Dados])
 
-        funTeste = tf.estimator.inputs.pandas_input_fn(x=Dados,
-                                                       shuffle=False)
+    funTeste = tf.estimator.inputs.pandas_input_fn(x=Dados,
+                                                   shuffle=False)
 
-        classificador = Classificador()
+    classificador = Classificador()
 
-        previsoesDict = {}
+    previsoesDict = {}
 
-        for prev in classificador.predict(input_fn=funTeste):
-            # classes = int(prev['classes'][0])
-            print(MaioresValoes(prev['probabilities']))
-
-    # return previsoesDict
-    pass
+    for prev in classificador.predict(input_fn=funTeste):
+        # classes = int(prev['classes'][0])
+        previsoesDict = MaioresValoes(prev['probabilities'])
+    return previsoesDict
 
 def MaioresValoes(Probabilidade):
     MaioreProbabilidade = {}
