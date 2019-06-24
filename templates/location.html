@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <title>Ceres</title>
+		<meta charset="utf-8">	
+        <link rel="stylesheet" href={{url_for("static",filename="main.css")}}>
+        <script type="text/javascript" src={{url_for("static",filename="main.js")}}> </script>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:600|Raleway:300|Roboto&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+    <div class="bar menu" id="menu">
+            <div class="title">C E R E S</div>
+    </div>
+
+    <div class="page page-margin"> 
+        
+        <div class="detalhes" id="detalhes">
+        <div class="voltar" style="height: 30%;opacity: 1"><img class="foto" src="fundo.png" style="max-height: 100%; height: 100%; max-width: 100%"></div>
+        <div class="content show" id="cartao_location">
+            <div class="dot" style="background-color: #247B3E;"><img class="foto" src="location.png"></div>
+            <div class="descricao" style="bottom: 8%"> Permita acesso a sua localização para podermos te fornecer informações sobre as melhores plantas para sua região </div>
+            <form action ="{{ url_for('Plante') }}" method="post">
+                <div class="botao"><button type="submit" class="title" > PERMITIR </button></div>
+                <div class= "link"> Informar manualmente </div>
+            </form>
+        </div>
+        </div> 
+        
+    </div>
+
+</body>
+</html>     
