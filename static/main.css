@@ -99,6 +99,19 @@ img {
     text-indent: 10px;
 }
 
+.card .probabilidade {
+
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+    bottom: -143px;
+    width: 100%;
+    padding-left: 215px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 146px;
+}
+
 .card .ver {
     position: absolute;
     width: 100%;
@@ -143,7 +156,7 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70%;
-    background-image: url(images/verao.png);
+    background-image: url(/static/icon/verao.png);
 
 }
 
@@ -154,7 +167,7 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70%;
-    background-image: url(images/outono.png);
+    background-image: url(/static/icon/outono.png);
 
 }
 
@@ -165,7 +178,7 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70%;
-    background-image: url(images/inverno.png);
+    background-image: url(/static/icon/inverno.png);
 
 }
 
@@ -176,7 +189,7 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70%;
-    background-image: url(images/primavera.png);
+    background-image: url(/static/icon/primavera.png);
 
 }
 
@@ -252,8 +265,8 @@ img {
 .detalhes .foto {
     display: block;
     position: absolute;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 80%;
+    max-height: 80%;
     top: 50%;
     left: 50%;
     -ms-transform: translateY(-50%);
