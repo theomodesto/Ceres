@@ -12,17 +12,14 @@ def testHome():
     return render_template('home.html',result = plantas)
 
 
-@app.route('/Plante/<id>', methods=['POST'])
+@app.route('/Plante/<id>', methods=['POST','GET'])
 def Plante(id):
-    passos = ['']
-    for planta in list(retornaTodasPlantas()):
-        print(planta['idPlanta'])
-        if planta['idPlanta'] == id:
-            print(planta['Passos'])
-            passos = planta['Passos']
 
-    print(passos)
-    return render_template('passos.html', passos = passos)
+    passosPlantio = ''
+    for planta in list(retornaPlantasPorId(1)):
+        for passo in planta['Passos']:
+            passosPlantio = planta['Passos']
+    return render_template('passos.html', passos = passosPlantio)
 
 
 @app.route('/geoloc/<lat>/<log>')
