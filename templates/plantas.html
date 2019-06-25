@@ -13,12 +13,12 @@
             <div class="title">C E R E S</div>
     </div>
 
-    {% for planta in result %}
+    {% for planta,probabilidade,estacao in result %}
 
     <div class="detalhes" id="detalhes">
         <button class="voltar" id="sair_detalhes{{planta['idPlanta']}}" onclick="detalhes({{planta['idPlanta']}})" style="display: none;"></button>
         <div class="content" id="cartao_detalhes{{planta['idPlanta']}}">
-            <div class="dot"><img class="foto" src="https://cdn.pixabay.com/photo/2016/10/18/19/24/carrot-1751148_960_720.png"></div>
+            <div class="dot"><img class="foto" src={{url_for("static",filename=planta['Foto'])}}></div>
             <div class="titulo"> {{planta['Nome']}} </div>
             <div class="descricao"> {{planta['descricao']}} </div>
             <div class="especificacao"> <strong>Calorias:</strong> {{planta['Calorias']}}</div>
@@ -41,11 +41,11 @@
 
         <div class="cards">
             <div class="card">
-	           <div class="up"> <img src={{url_for("static",filename=planta['Foto'])}}> </div>
+                <div class="up"> <img src={{url_for("static",filename=planta['Foto'])}}> </div>
 		   <div class="dot {{ estacao }}"></div>
                    <div class="titulo"> {{planta['Nome']}} </div>
 		   <div class="descricao">{{planta['Descricao']}}</div>
-                <div class="probabilidade">Probabilidade:{{ probabilidade }}%</div>
+                <div class="probabilidade"><strong>Probabilidade:</strong> {{ probabilidade }}%</div>
 		   <div class="ver" onclick="detalhes({{planta['idPlanta']}})">
                    <div class="botao_nome" >CONHEÇA</div>
                 </div>

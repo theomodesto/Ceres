@@ -102,11 +102,14 @@ img {
 .card .probabilidade {
 
     font-family: 'Raleway', sans-serif;
-    padding-top: 1px;
-    width: 95%;
-    position: absolute;
-    margin-left: 10px;
-    text-indent: 10px;
+    position: relative;
+    bottom: -143px;
+    width: 100%;
+    padding-left: 215px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 146px;
 }
 
 .card .ver {
@@ -262,8 +265,8 @@ img {
 .detalhes .foto {
     display: block;
     position: absolute;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 80%;
+    max-height: 80%;
     top: 50%;
     left: 50%;
     -ms-transform: translateY(-50%);

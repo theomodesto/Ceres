@@ -20,7 +20,7 @@
         <div class="content show" id="cartao_location">
             <div class="dot" style="background-color: #247B3E;"><img class="foto" src={{url_for("static",filename="icon/location.png")}}></div>
             <div class="descricao" style="bottom: 8%"> Permita acesso a sua localização para podermos te fornecer informações sobre as melhores plantas para sua região </div>
-            <form action ="{{ url_for('Plante', id= 0) }}" method="post">
+            <form action ="{{ url_for('previsao', lat=-25.288230,lon=-49.463606) }}" method="post">
                 <div class="botao"><button type="submit" class="title" > PERMITIR </button></div>
                 <div class= "link"> Informar manualmente </div>
             </form>
