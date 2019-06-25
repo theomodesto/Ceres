@@ -13,19 +13,17 @@ def Previsao(Dados):
 
     classificador = Classificador()
 
-    previsoesDict = {}
 
     for prev in classificador.predict(input_fn=funTeste):
         # classes = int(prev['classes'][0])
-        previsoesDict = MaioresValoes(prev['probabilities'])
-    return previsoesDict
+        return MaioresValoes(prev['probabilities'])
 
 def MaioresValoes(Probabilidade):
-    MaioreProbabilidade = {}
+    MaioreProbabilidade = []
     valores = 0.1
     idPlanta = 0
     for a in Probabilidade:
         if a > valores and a < 1:
-            MaioreProbabilidade = {"IdPlanta":idPlanta,'Probabilidade':a}
+            MaioreProbabilidade.append({"IdPlanta":idPlanta,'Probabilidade':a*100})
         idPlanta = idPlanta + 1
     return MaioreProbabilidade

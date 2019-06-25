@@ -11,16 +11,16 @@ def Home():
                            result=list(retornaTodasPlantas())
                            )
 
-@app.route('Plantas/<lat>/<lon>')
+@app.route('Plantas/<lat>/<lon>',methods=['GET','POST'])
 def previsao(lat,lon):
     previsoes = []
-    ano = datetime.year()
+    ano = ((datetime.now().year)-1)
     Dados = GetDadosAPI(lat, lon, ano)
     for key in Dados:
         previsao = Previsao(Dados[key])
-        planta = retornaPlantasPorId(previsao['IdPlanta'])
-        previsoes.append([planta, previsao['Probabilidade'],key])
-    print(previsoes)
+        for prev in previsao:
+            planta = retornaPlantasPorId(prev['IdPlanta'])
+            previsoes.append([planta, prev['Probabilidade'], key])
     return render_template('listaPlantas.html', previsoes=previsoes)
 
 @app.route('/Plante/<id>',methods=['GET'])
