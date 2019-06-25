@@ -16,11 +16,11 @@
     <div class="page page-margin"> 
         
         <div class="detalhes" id="detalhes">
-        <div class="voltar" style="height: 30%;opacity: 1"><img class="foto" src="fundo.png" style="max-height: 100%; height: 100%; max-width: 100%"></div>
+        <div class="voltar" style="height: 30%;opacity: 1"><img class="foto" src={{url_for("static",filename="images/fundo.png")}} style="max-height: 100%; height: 100%; max-width: 100%"></div>
         <div class="content show" id="cartao_location">
-            <div class="dot" style="background-color: #247B3E;"><img class="foto" src="location.png"></div>
+            <div class="dot" style="background-color: #247B3E;"><img class="foto" src={{url_for("static",filename="images/location.png")}}></div>
             <div class="descricao" style="bottom: 8%"> Permita acesso a sua localização para podermos te fornecer informações sobre as melhores plantas para sua região </div>
-            <form action ="{{ url_for('Plante') }}" method="post">
+            <form action ="{{ url_for('Plante', id= 0) }}" method="post">
                 <div class="botao"><button type="submit" class="title" > PERMITIR </button></div>
                 <div class= "link"> Informar manualmente </div>
             </form>
