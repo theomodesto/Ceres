@@ -94,7 +94,8 @@ img {
     font-family: 'Raleway', sans-serif;
     padding-top: 1px;
     width: 95%;
-    margin: auto;
+    position: absolute;
+    margin-left: 10px;
     text-indent: 10px;
 }
 
@@ -122,6 +123,64 @@ img {
 	justify-content: center;
 	align-items: center;
 }
+
+.card .dot {
+    height: 55px;
+    width: 55px;
+    bottom: 8%;
+    position: inherit;
+    z-index: 2;
+    float: right;
+    margin-right: 8px;
+    background-color: #000000;
+    border-radius: 50%;
+}
+
+.card .dot.verao {
+    background-color: #247b3e;
+    max-width: 30%;
+    max-height: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    background-image: url(verao.png);
+
+}
+
+.card .dot.outono {
+    background-color: #247b3e;
+    max-width: 30%;
+    max-height: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    background-image: url(outono.png);
+
+}
+
+.card .dot.inverno {
+    background-color: #247b3e;
+    max-width: 30%;
+    max-height: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    background-image: url(inverno.png);
+
+}
+
+.card .dot.primavera {
+    background-color: #247b3e;
+    max-width: 30%;
+    max-height: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    background-image: url(primavera.png);
+
+}
+
+
 
 .bar {
 	height: 50px;
