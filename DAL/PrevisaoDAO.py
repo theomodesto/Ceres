@@ -12,5 +12,5 @@ def previsaoFinal(lat,lon):
         for prev in previsao:
             print(prev, key)
             planta = retornaPlantasPorId(prev['IdPlanta'])
-            previsoes.append([planta, prev['Probabilidade'], key.lower()])
+            previsoes.append([planta, int(prev['Probabilidade']), key.lower()])
     return previsoes
