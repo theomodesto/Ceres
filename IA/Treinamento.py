@@ -3,38 +3,11 @@ from IA.Classificador import *
 import pickle
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
-from Util.EscalonamentoDados import *
+from Util.NormalizacaoDados import *
 
 steps = 50000
 
 def Treinamento():
-
-    X_Treinamento, y_Treinamento = DadosPlantas()
-
-    X_Treinamento = EscalonamentoDados(X_Treinamento)
-
-    funcao_treinamento = tf.estimator.inputs.pandas_input_fn(x=X_Treinamento,
-                                                             y=y_Treinamento,
-                                                             batch_size=32,
-                                                             num_epochs=None,
-                                                             shuffle=False)
-
-    numPlantas = len(y_Treinamento)
-
-    # classificador = Classificador(numPlantas=numPlantas)
-    classificador = Classificador(numPlantas=numPlantas)
-
-    print("Treinando a IA !!!")
-
-    classificador.train(input_fn=funcao_treinamento, steps=steps)
-
-    eval = classificador.evaluate(input_fn=funcao_treinamento,steps=steps)
-
-    print("Treinamento concluido !!!\nScore:",eval)
-
-    return True
-
-def TreinamentoDadosAumentados():
 
     X_Treinamento, y_Treinamento = DadosPlantasAumentados()
 
@@ -46,13 +19,10 @@ def TreinamentoDadosAumentados():
                                                         test_size=0.1,
                                                         random_state=42)
 
-    print(X_train.head())
-    print(y_train.head())
-
     funcao_treinamento = tf.estimator.inputs.pandas_input_fn(x=X_train,
                                                              y=y_train,
                                                              batch_size=32,
-                                                             num_epochs=10,
+                                                             num_epochs=None,
                                                              shuffle=False)
 
     funcao_teste = tf.estimator.inputs.pandas_input_fn(x=X_test,
@@ -61,9 +31,9 @@ def TreinamentoDadosAumentados():
                                                        num_epochs=None,
                                                        shuffle=False)
 
-    #numPlantas = len(list(set(y_Treinamento)))
+    # numPlantas = len(list(set(y_Treinamento)))+1
 
-    classificador = ClassificadorDadosAumentados()
+    classificador = Classificador()
 
     print("Treinando a IA !!!")
 

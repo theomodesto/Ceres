@@ -22,12 +22,12 @@ def retornaTodasAsPlantasTreinamento():
 
 
 def retornaPlantasTreinamentoPorNome(nomePlanta):
-    cursor = Connection('PlantasTreinamento').find({'Nome': nomePlanta})
+    cursor = Connection('PlantasTreinamento').find_one({'Nome': nomePlanta})
     return cursor
 
 
 def retornaPlantasTreinamentoPorId(id):
-    cursor = Connection('PlantasTreinamento').find({'idPlanta': id})
+    cursor = Connection('PlantasTreinamento').find_one({'idPlanta': int(id)})
     return cursor
 
 

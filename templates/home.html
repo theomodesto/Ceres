@@ -21,7 +21,7 @@
             <div class="dot"><img class="foto" src="https://cdn.pixabay.com/photo/2016/10/18/19/24/carrot-1751148_960_720.png"></div>
             <div class="titulo"> {{planta['Nome']}} </div>
             <div class="descricao"> {{planta['descricao']}} </div>
-            <div class="especificacao"> <strong>Caloria:</strong> {{planta['Calorias']}}</div>
+            <div class="especificacao"> <strong>Calorias:</strong> {{planta['Calorias']}}</div>
             <div class="especificacao"> <strong>Tempo:</strong> {{planta['Tempo']}} </div>
             <div class="especificacao" style="float: none; width: 90%; margin: auto;"> <strong>Nuntrientes:</strong> {{planta['Nutrientes']}} </div>
 
@@ -42,10 +42,11 @@
         <div class="cards">
             <div class="card">
 	           <div class="up"> <img src="https://cdn.pixabay.com/photo/2016/10/18/19/24/carrot-1751148_960_720.png"> </div>
-                <div class="titulo"> {{planta['Nome']}} </div>
-                <div class="descricao">{{planta['Descricao']}}</div>
-                <div class="ver" onclick="detalhes({{planta['idPlanta']}})">
-                    <div class="botao_nome" >CONHEÇA</div>'
+		   <div class="dot verao"></div>
+                   <div class="titulo"> {{planta['Nome']}} </div>
+		   <div class="descricao">{{planta['Descricao']}}</div>
+		   <div class="ver" onclick="detalhes({{planta['idPlanta']}})">
+                   <div class="botao_nome" >CONHEÇA</div>
                 </div>
 	        </div>
         </div>
