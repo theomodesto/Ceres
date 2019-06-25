@@ -13,49 +13,21 @@
             <div class="title">C E R E S</div>
     </div>
 
-    {% for planta in result %}
-
-    <div class="detalhes" id="detalhes">
-        <button class="voltar" id="sair_detalhes{{planta['idPlanta']}}" onclick="detalhes({{planta['idPlanta']}})" style="display: none;"></button>
-        <div class="content" id="cartao_detalhes{{planta['idPlanta']}}">
-            <div class="dot"><img class="foto" src="https://cdn.pixabay.com/photo/2016/10/18/19/24/carrot-1751148_960_720.png"></div>
-            <div class="titulo"> {{planta['Nome']}} </div>
-            <div class="descricao"> {{planta['descricao']}} </div>
-            <div class="especificacao"> <strong>Calorias:</strong> {{planta['Calorias']}}</div>
-            <div class="especificacao"> <strong>Tempo:</strong> {{planta['Tempo']}} </div>
-            <div class="especificacao" style="float: none; width: 90%; margin: auto;"> <strong>Nuntrientes:</strong> {{planta['Nutrientes']}} </div>
-
-            <form action ="{{ url_for('Plante', id=planta['idPlanta']) }}" method="post">
-                <div class="botao"><button type="submit" class="title" > PLANTE </button></div>
+    <div class="page page-margin"> 
+        
+        <div class="detalhes" id="detalhes">
+        <div class="voltar" style="height: 30%;opacity: 1"><img class="foto" src={{url_for("static",filename="icon/fundo.png")}} style="max-height: 100%; height: 100%; max-width: 100%"></div>
+        <div class="content show" id="cartao_location">
+            <div class="dot" style="background-color: #247B3E;"><img class="foto" src={{url_for("static",filename="icon/location.png")}}></div>
+            <div class="descricao" style="bottom: 8%"> Permita acesso a sua localização para podermos te fornecer informações sobre as melhores plantas para sua região </div>
+            <form action ="{{ url_for('Plante', id= 0) }}" method="post">
+                <div class="botao"><button type="submit" class="title" > PERMITIR </button></div>
+                <div class= "link"> Informar manualmente </div>
             </form>
-
         </div>
+        </div> 
+        
     </div>
 
-    {% endfor %}
-
-
-    <div class="page page-margin"> 
-
-    {% for planta in result %}
-
-        <div class="cards">
-            <div class="card">
-	           <div class="up"> <img src="https://cdn.pixabay.com/photo/2016/10/18/19/24/carrot-1751148_960_720.png"> </div>
-		   <div class="dot verao"></div>
-                   <div class="titulo"> {{planta['Nome']}} </div>
-		   <div class="descricao">{{planta['Descricao']}}</div>
-		   <div class="ver" onclick="detalhes({{planta['idPlanta']}})">
-                   <div class="botao_nome" >CONHEÇA</div>
-                </div>
-	        </div>
-        </div>
-
-    {% endfor %}
-
-
-    </div> 
-
-
 </body>
-</html>
+</html>     

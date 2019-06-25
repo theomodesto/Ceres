@@ -99,6 +99,16 @@ img {
     text-indent: 10px;
 }
 
+.card .probabilidade {
+
+    font-family: 'Raleway', sans-serif;
+    padding-top: 1px;
+    width: 95%;
+    position: absolute;
+    margin-left: 10px;
+    text-indent: 10px;
+}
+
 .card .ver {
     position: absolute;
     width: 100%;
@@ -143,7 +153,7 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70%;
-    background-image: url(images/verao.png);
+    background-image: url(/static/icon/verao.png);
 
 }
 
@@ -154,7 +164,7 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70%;
-    background-image: url(images/outono.png);
+    background-image: url(/static/icon/outono.png);
 
 }
 
@@ -165,7 +175,7 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70%;
-    background-image: url(images/inverno.png);
+    background-image: url(/static/icon/inverno.png);
 
 }
 
@@ -176,7 +186,7 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70%;
-    background-image: url(images/primavera.png);
+    background-image: url(/static/icon/primavera.png);
 
 }
 
