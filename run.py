@@ -11,14 +11,7 @@ def Home():
                            result=list(retornaTodasPlantas())
                            )
 
-@app.route('/Plante/<id>',methods=['GET'])
-def Plante(id):
-    planta = retornaPlantasPorId(id)
-    return render_template('passos.html'
-                           , passos=planta["Passos"]
-                           )
-
-@app.route('previsao/<lat>/<lon>')
+@app.route('Plantas/<lat>/<lon>')
 def previsao(lat,lon):
     previsoes = []
     ano = datetime.year()
@@ -28,8 +21,13 @@ def previsao(lat,lon):
         planta = retornaPlantasPorId(previsao['IdPlanta'])
         previsoes.append([planta, previsao['Probabilidade'],key])
     print(previsoes)
-    return render_template('plantas.html', previsoes)
+    return render_template('listaPlantas.html', previsoes=previsoes)
 
-
+@app.route('/Plante/<id>',methods=['GET'])
+def Plante(id):
+    planta = retornaPlantasPorId(id)
+    return render_template('passos.html'
+                           , passos=planta["Passos"]
+                           )
 
 app.run()
