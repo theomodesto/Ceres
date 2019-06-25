@@ -11,7 +11,7 @@ def Home():
                            result=list(retornaTodasPlantas())
                            )
 
-@app.route('Plantas/<lat>/<lon>',methods=['GET','POST'])
+@app.route('/Plantas/<lat>/<lon>')
 def previsao(lat,lon):
     previsoes = []
     ano = ((datetime.now().year)-1)
