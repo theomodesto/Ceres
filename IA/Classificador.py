@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.feature_column import numeric_column
 
-def Classificador(numPlantas=25):
+def Classificador(numPlantas=28):
 
     Tem = numeric_column(key='Tem')
     Umi = numeric_column(key='Umi')
@@ -9,9 +9,9 @@ def Classificador(numPlantas=25):
 
     colunas = [Tem, Umi, Prec]
 
-    classificador = tf.estimator.DNNClassifier(hidden_units=[128, 128, 128],
+    classificador = tf.estimator.DNNClassifier(hidden_units=[32, 32, 32],
                                                feature_columns=colunas,
-                                               model_dir='Model/tensorflowDadosAumentados',
+                                               model_dir='Model/tensorflow',
                                                n_classes=numPlantas,
                                                )
 

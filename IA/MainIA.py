@@ -13,9 +13,11 @@ if __name__ == '__main__':
 
     previsoes = []
 
-    Dados = GetDadosAPI(32.658317, 3.544376, 2018)
+    Dados = GetDadosAPI(-25.288230, -49.463606, 2018)
     for key in Dados:
-        previsao = Previsao(Dados[key])
-        planta = retornaPlantasPorId(previsao['IdPlanta'])
-        previsoes.append([planta, previsao['Probabilidade']])
+        previsao = Previsao(Dados[key],key)
+        for prev in previsao:
+            planta = retornaPlantasPorId(prev['IdPlanta'])
+            print(prev['IdPlanta'], prev['Probabilidade'],key)
+            previsoes.append([planta, prev['Probabilidade'],key])
     print(previsoes)

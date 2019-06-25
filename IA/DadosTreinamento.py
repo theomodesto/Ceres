@@ -26,7 +26,6 @@ def AumentoRepresentatividade(dados):
                     # f.flush()
     # f.close()
     print("Dados aumentados")
-    print("Media PreciMin : 162")
 
     dadosAum = pd.DataFrame(data=arrayDados)
     return dadosAum

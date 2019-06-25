@@ -19,13 +19,10 @@ def Treinamento():
                                                         test_size=0.1,
                                                         random_state=42)
 
-    print(X_train.head())
-    print(y_train.head())
-
     funcao_treinamento = tf.estimator.inputs.pandas_input_fn(x=X_train,
                                                              y=y_train,
                                                              batch_size=32,
-                                                             num_epochs=10,
+                                                             num_epochs=None,
                                                              shuffle=False)
 
     funcao_teste = tf.estimator.inputs.pandas_input_fn(x=X_test,
@@ -34,7 +31,7 @@ def Treinamento():
                                                        num_epochs=None,
                                                        shuffle=False)
 
-    #numPlantas = len(list(set(y_Treinamento)))
+    # numPlantas = len(list(set(y_Treinamento)))+1
 
     classificador = Classificador()
 

@@ -26,7 +26,8 @@ def previsao(lat,lon):
     for key in Dados:
         previsao = Previsao(Dados[key])
         planta = retornaPlantasPorId(previsao['IdPlanta'])
-        previsoes.append([planta, previsao['Probabilidade']])
+        previsoes.append([planta, previsao['Probabilidade'],key])
+    print(previsoes)
     return render_template('plantas.html', previsoes)
 
 
