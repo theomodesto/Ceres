@@ -1,13 +1,6 @@
 from DAL.ConnectionMongoDB import *
 import pandas as pd
 
-def DadosPlantas():
-    plantas = Connection("PlantasTreinamento").find()
-    dfPlantas = pd.DataFrame(data=list(plantas))
-    y = dfPlantas.idPlanta
-    X = dfPlantas.drop(['Nome', '_id','idPlanta'],axis=1)
-    return X,y
-
 def DadosPlantasAumentados():
     dfPlantas = pd.DataFrame(data=list(Connection("PlantasTreinamento").find().clone()))
     DadosAumentados = AumentoRepresentatividade(dfPlantas)
@@ -33,8 +26,6 @@ def AumentoRepresentatividade(dados):
                     # f.flush()
     # f.close()
     print("Dados aumentados")
-    print("Media PreciMin : 162")
-
 
     dadosAum = pd.DataFrame(data=arrayDados)
     return dadosAum
