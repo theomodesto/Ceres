@@ -19,11 +19,11 @@
     {% for passo in passos %}
 
         <div class="passos">
-            <div class="number">1</div>
+            <div class="number">{{loop.index0 + 1}}</div>
             <div class="howto">{{passo}}</div>
         </div>
 
-    {% endfor %}
+      {% endfor %}
 
 </div>
 

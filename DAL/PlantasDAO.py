@@ -24,7 +24,7 @@ def retornaPlantasPorNome(nomePlanta):
 	return cursor
 
 def retornaPlantasPorId(id):
-	cursor = Connection('Plantas').find_one({'idPlanta':id})
+	cursor = Connection('Plantas').find_one({'idPlanta':int(id)})
 	return cursor
 
 def retornaTodasPlantas():
