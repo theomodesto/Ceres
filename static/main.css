@@ -143,7 +143,7 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70%;
-    background-image: url(verao.png);
+    background-image: url(images/verao.png);
 
 }
 
@@ -154,7 +154,7 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70%;
-    background-image: url(outono.png);
+    background-image: url(images/outono.png);
 
 }
 
@@ -165,7 +165,7 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70%;
-    background-image: url(inverno.png);
+    background-image: url(images/inverno.png);
 
 }
 
@@ -176,7 +176,7 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70%;
-    background-image: url(primavera.png);
+    background-image: url(images/primavera.png);
 
 }
 
